@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
+    android:padding="@dimen/mainActivityPadding"
+    tools:context=".ChooseBoard">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/logo"
+        android:layout_height="wrap_content"
+        android:text="@string/tictactoe"
+        android:fontFamily="casual"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/mytextview"
+        android:drawableLeft="@drawable/tictactoelogo"
+        android:drawableStart="@drawable/tictactoelogo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/choose_board_type"
+        app:layout_constraintVertical_chainStyle="spread"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/choose_board_type"
+        android:text="@string/choose_board_type"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        android:background="@drawable/mytextview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/three_by_three_board"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+         />
+
+    <Button
+        android:id="@+id/three_by_three_board"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/edittextmargin"
+        android:onClick="threeByThree"
+        android:layout_marginBottom="40dp"
+        android:text="3 X 3 "
+        app:layout_constraintBottom_toTopOf="@+id/five_by_five_board"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_board_type"
+        android:textColor="#222222"
+        android:background="@drawable/mybutton"
+        android:textSize="@dimen/edittextsize"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/edittextmargin"
+        android:onClick="fiveByFive"
+        android:text="5 X 5"
+        android:id="@+id/five_by_five_board"
+        app:layout_constraintTop_toBottomOf="@+id/three_by_three_board"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="#222222"
+        android:textSize="@dimen/edittextsize"
+        android:background="@drawable/mybutton"
+        tools:ignore="OnClick" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSecondary"
+        android:padding="20dp"
+        tools:context=".GameBoardThree">
+
+        <TextView
+            android:id="@+id/player_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textSize="20sp"
+            app:layout_constraintRight_toLeftOf="@+id/player_one_score"
+            android:text="@string/player_one"
+            app:layout_constraintBaseline_toBaselineOf="@+id/player_one_score"/>
+
+        <TextView
+            android:id="@+id/player_one_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:textSize="20sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/player_two_score"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/player_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textSize="20sp"
+            app:layout_constraintRight_toLeftOf="@+id/player_two_score"
+            android:text="@string/player_two"
+            app:layout_constraintBaseline_toBaselineOf="@+id/player_two_score"/>
+
+        <TextView
+            android:id="@+id/player_two_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:textSize="20sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/five_by_five_board"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/five_by_five_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:orientation="vertical"
+            android:background="@drawable/mybutton"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/whose_turn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <LinearLayout
+                android:id="@+id/row0"
+                style="@style/TableRowFive"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/position_00"
+                    style="@style/LeftCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_01"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_02"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_03"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+
+                <Button
+                    android:id="@+id/position_04"
+                    style="@style/RightCell"
+                    android:background="#ffffff">
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row1"
+                style="@style/TableRowFive">
+
+                <Button
+                    android:id="@+id/position_10"
+                    style="@style/LeftCell"
+                    android:layout_column="0">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_11"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_12"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_13"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+
+                <Button
+                    android:id="@+id/position_14"
+                    style="@style/RightCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row2"
+                style="@style/TableRowFive">
+
+                <Button
+                    android:id="@+id/position_20"
+                    style="@style/LeftCell"
+                    android:layout_column="0">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_21"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_22"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_23"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+
+                <Button
+                    android:id="@+id/position_24"
+                    style="@style/RightCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row3"
+                style="@style/TableRowFive">
+
+                <Button
+                    android:id="@+id/position_30"
+                    style="@style/LeftCell"
+                    android:layout_column="0">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_31"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_32"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_33"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+
+                <Button
+                    android:id="@+id/position_34"
+                    style="@style/RightCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row4"
+                style="@style/TableRowFive">
+
+                <Button
+                    android:id="@+id/position_40"
+                    style="@style/LeftCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_41"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_42"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/position_43"
+                    style="@style/MiddleCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+
+                <Button
+                    android:id="@+id/position_44"
+                    style="@style/RightCell"
+                    android:background="#ffffff">
+
+                </Button>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/whose_turn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="10dp"
+            android:text="@string/turn"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/reset_match"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/reset_match"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/mybutton"
+            android:padding="@dimen/mainActivityPadding"
+            android:text="@string/reset_match"
+            app:layout_constraintBottom_toTopOf="@+id/reset_game"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/reset_game"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/mybutton"
+            android:padding="@dimen/mainActivityPadding"
+            android:text="@string/reset_game"
+            app:layout_constraintBottom_toTopOf="@+id/quit_to_main_menu"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/quit_to_main_menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:onClick="quit_to_main_menu"
+            android:background="@drawable/mybutton"
+            android:padding="@dimen/mainActivityPadding"
+            android:text="@string/quit_to_main_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

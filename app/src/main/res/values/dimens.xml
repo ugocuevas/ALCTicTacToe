@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mainActivityPadding">10dp</dimen>
+    <dimen name="edittextmargin">30dp</dimen>
+    <dimen name="edittextsize">16sp</dimen>
+</resources>

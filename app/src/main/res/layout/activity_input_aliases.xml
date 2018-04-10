@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorSecondary"
+    android:padding="@dimen/mainActivityPadding"
+    android:orientation="vertical"
+    tools:context="com.example.ugochi.alctictactoe.InputAlias">
+
+    <EditText
+        android:id="@+id/enter_player_one_alias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edittextmargin"
+        android:background="@drawable/myedittextbox"
+        android:hint="@string/enter_player_one_alias"
+        android:inputType="textAutoComplete"
+        android:padding="@dimen/mainActivityPadding"
+        android:textColor="@color/editTextColor"
+        android:textSize="@dimen/edittextsize"
+        app:layout_constraintBottom_toTopOf="@+id/enter_player_two_alias"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/enter_player_two_alias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edittextmargin"
+        android:background="@drawable/myedittextbox"
+        android:hint="@string/enter_player_two_alias"
+        android:inputType="textAutoComplete"
+        android:padding="@dimen/mainActivityPadding"
+        android:textColor="@color/editTextColor"
+        android:textSize="@dimen/edittextsize"
+        app:layout_constraintBottom_toTopOf="@+id/start_game"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_player_one_alias"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/start_game"
+        android:background="@drawable/mybutton"
+        android:text="@string/start_game"
+        android:textSize="@dimen/edittextsize"
+        android:textColor="#222222"
+        android:layout_margin="@dimen/edittextmargin"
+        android:onClick="startHumanGame"
+        app:layout_constraintTop_toBottomOf="@+id/enter_player_two_alias"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

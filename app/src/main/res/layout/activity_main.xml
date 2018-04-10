@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
+    android:padding="@dimen/mainActivityPadding"
+    tools:context="com.example.ugochi.alctictactoe.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tictactoe"
+        android:fontFamily="casual"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/mytextview"
+        android:drawableLeft="@drawable/tictactoelogo"
+        android:drawableStart="@drawable/tictactoelogo" />
+
+    <Button
+        android:id="@+id/game_against_human"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/edittextmargin"
+        android:onClick="gameAgainstHuman"
+        android:layout_marginBottom="40dp"
+        android:text="@string/game_against_human"
+        app:layout_constraintBottom_toTopOf="@+id/game_against_computer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:textColor="#222222"
+        android:background="@drawable/mybutton"
+        android:textSize="@dimen/edittextsize"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/edittextmargin"
+        android:onClick="gameAgainstComputer"
+        android:text="@string/game_against_computer"
+        android:id="@+id/game_against_computer"
+        app:layout_constraintTop_toBottomOf="@+id/game_against_human"
+        app:layout_constraintBottom_toTopOf="@+id/instructions"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="#222222"
+        android:textSize="@dimen/edittextsize"
+        android:background="@drawable/mybutton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/instructions"
+        android:padding="10dp"
+        android:onClick="viewInstructions"
+        android:text="@string/view_instructions"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_against_computer"
+        android:textColor="#222222"
+        android:textSize="@dimen/edittextsize"
+        android:background="@drawable/mytextview"/>
+
+
+
+</android.support.constraint.ConstraintLayout>

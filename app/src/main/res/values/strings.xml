@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ALCTicTacToe</string>
+    <string name="game_against_human">GAME AGAINST HUMAN</string>
+    <string name="game_against_computer">GAME AGAINST COMPUTER</string>
+    <string name="tictactoe">TicTacToe</string>
+    <string name="enter_your_alias">Enter your alias</string>
+    <string name="start_game">START GAME</string>
+    <string name="enter_player_one_alias">Enter Player One Alias</string>
+    <string name="enter_player_two_alias">Enter Player Two Alias</string>
+    <string name="choose_board_type">Choose Board Type</string>
+    <string name="three_by_three_board">3</string>
+    <string name="X">"   X   "</string>
+    <string name="O">"   O   "</string>
+    <string name="quit_to_main_menu">Quit to Main Menu</string>
+    <string name="reset_game">Reset Game</string>
+    <string name="reset_match">Reset Match</string>
+    <string name="turn">Turn:</string>
+    <string name="player_one">Player One: </string>
+    <string name="player_two">Player Two: </string>
+    <string name="empty_string"> </string>
+    <string name="choose_an_unoccupied_cell">Please choose a Cell Which is not already Occupied</string>
+    <string name="colon">:</string>
+    <string name="view_instructions">View Instructions</string>
+    <string name="instructions">Instructions</string>
+    <string name="three_by_three">3 X 3</string>
+    <string name="three_by_three_explanation">The object of Tic Tac Toe is to get three in a row. You play on a three by three game board.
+        The first player is known as X and the second is O.
+        Players alternate placing Xs and Os on the game board until either opponent has three in a row or all nine squares are filled.
+        When no three consecutive boxes have an X or O diagonally, vertically or horizontally, the match is a draw</string>
+    <string name="five_by_five">5 X 5</string>
+    <string name="five_by_five_explanation">For the five by five game board, the rules are similar. However, four characters of the same kind (Xs or Os) are required in consecutive vertical, horizontal or diagonal cells</string>
+    <string name="computer_is_thinking">AI is thinking</string>
+</resources>

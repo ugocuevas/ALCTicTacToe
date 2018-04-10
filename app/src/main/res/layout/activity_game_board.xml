@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSecondary"
+        android:padding="20dp"
+        tools:context=".GameBoardThree">
+
+        <TextView
+            android:id="@+id/player_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/player_one_score"
+            android:text="@string/player_one"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/player_one_score"/>
+
+        <TextView
+            android:id="@+id/player_one_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:textSize="20sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/player_two_score"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:id="@+id/player_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="serif-monospace"
+            android:textSize="20sp"
+            app:layout_constraintRight_toLeftOf="@+id/player_two_score"
+            android:text="@string/player_two"
+            app:layout_constraintBaseline_toBaselineOf="@+id/player_two_score"/>
+
+        <TextView
+            android:id="@+id/player_two_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:textSize="20sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/three_by_three_board"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/three_by_three_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:background="@drawable/mybutton"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/whose_turn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <LinearLayout
+                android:id="@+id/row0"
+                style="@style/TableRow"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/LeftCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_00">
+
+                </Button>
+
+                <Button
+                    style="@style/MiddleCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_01">
+
+                </Button>
+
+                <Button
+                    style="@style/RightCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_02">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row1"
+                style="@style/TableRow">
+
+                <Button
+                    style="@style/LeftCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_10">
+
+                </Button>
+
+                <Button
+                    style="@style/MiddleCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_11">
+
+                </Button>
+
+                <Button
+                    style="@style/RightCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_12">
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row2"
+                style="@style/TableRow">
+
+                <Button
+                    style="@style/LeftCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_20">
+
+                </Button>
+
+                <Button
+                    style="@style/MiddleCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_21">
+
+                </Button>
+
+                <Button
+                    style="@style/RightCell"
+                    android:background="#ffffff"
+                    android:freezesText="true"
+                    android:id="@+id/position_22">
+
+                </Button>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/whose_turn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="10dp"
+            android:text="@string/turn"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/reset_board"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/reset_board"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="resetBoard"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/mybutton"
+            android:padding="@dimen/mainActivityPadding"
+            android:text="@string/reset_match"
+            app:layout_constraintBottom_toTopOf="@+id/reset_game"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/reset_game"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/mybutton"
+            android:padding="@dimen/mainActivityPadding"
+            android:text="@string/reset_game"
+            app:layout_constraintBottom_toTopOf="@+id/quit_to_main_menu"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/quit_to_main_menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:onClick="quit_to_main_menu"
+            android:background="@drawable/mybutton"
+            android:padding="@dimen/mainActivityPadding"
+            android:text="@string/quit_to_main_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
