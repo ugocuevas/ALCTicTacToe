@@ -30,6 +30,8 @@ public class GameBoardThree extends AppCompatActivity implements View.OnClickLis
     private String playerOneAliasString;
     private String playerTwoAliasString;
 
+    private String gameMode;
+
     Button resetGame;
 
     LinearLayout mainBoard;
@@ -62,12 +64,14 @@ public class GameBoardThree extends AppCompatActivity implements View.OnClickLis
             playerOneAlias.setText(String.format("%s%s", playerOneAliasString, getString(R.string.colon)));
             playerTwoAliasString = intentFromChooseBoard.getStringExtra("Player Two Alias");
             playerTwoAlias.setText(String.format("%s%s", playerTwoAliasString, getString(R.string.colon)));
+            gameMode = "HUMAN";
         }
         else {
             playerOneAliasString = intentFromChooseBoard.getStringExtra("Name of Player");
             playerOneAlias.setText(String.format("%s%s", playerOneAliasString, getString(R.string.colon)));
             playerTwoAliasString = "AI";
             playerTwoAlias.setText(String.format("%s%s", playerTwoAliasString, getString(R.string.colon)));
+            gameMode = "COMPUTER";
         }
 
         mainBoard = findViewById(R.id.three_by_three_board);
@@ -120,35 +124,144 @@ public class GameBoardThree extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-
         if (!((Button) view).getText().toString().equals("")) {
             return;
         }
+        if (gameMode.equals("HUMAN")){
 
-        if (playerOneTurn) {
-            ((Button) view).setText("X");
-            whoseTurn.setText("Turn: " + playerTwoAliasString + "'s turn");
-        } else {
-            ((Button) view).setText("O");
-            whoseTurn.setText("Turn: " + playerOneAliasString + "'s turn");
-
-        }
-
-        movesCount++;
-
-        if (hasWon()) {
             if (playerOneTurn) {
-                playerOneWins();
+                ((Button) view).setText("X");
+                whoseTurn.setText("Turn: " + playerTwoAliasString + "'s turn");
             } else {
-                playerTwoWins();
+                ((Button) view).setText("O");
+                whoseTurn.setText("Turn: " + playerOneAliasString + "'s turn");
+
             }
-        } else if (movesCount == 9) {
-            drawnMatch();
-        } else {
-            playerOneTurn = !playerOneTurn;
+
+            movesCount++;
+
+            if (hasWon()) {
+                if (playerOneTurn) {
+                    playerOneWins();
+                } else {
+                    playerTwoWins();
+                }
+            } else if (movesCount == 9) {
+                drawnMatch();
+            } else {
+                playerOneTurn = !playerOneTurn;
+            }
+        }
+        else if (gameMode.equals("COMPUTER")) {
+            if (playerOneTurn) {
+                ((Button) view).setText("X");
+
+                movesCount++;
+
+                if (hasWon()) {
+                    if (playerOneTurn) {
+                        playerOneWins();
+                    } else {
+                        playerTwoWins();
+                    }
+                } else if (movesCount == 25) {
+                    drawnMatch();
+                } else {
+                    playerOneTurn = !playerOneTurn;
+                }
+                computerPlay();
+            }
+        }
+    }
+
+    private void computerPlay() {
+        boolean hasComputerPlayed = false;
+
+        if (!playerOneTurn) {
+
+            while (!hasComputerPlayed) {
+                int random = (int) (Math.random() * 9);
+                int row = random / 3;
+                int col = random % 3;
+
+                for (int i = 0; i < row; i++) {
+                    for (int j = 0; j < col; j++) {
+                        if (cells[i][j].getText().toString().equals("")) {
+                            cells[i][j].setText("O");
+                            if (cells[0][0].equals(cells[1][1])
+                                    && cells[0][0].getText().toString().equals("X")
+                                    && !cells[0][0].getText().toString().equals("")) {
+                                cells[2][2].setText("O");
+                            }
+                            if (cells[0][0].equals(cells[1][0])
+                                    && cells[0][0].getText().toString().equals("X")
+                                    && !cells[0][0].getText().toString().equals("")) {
+                                cells[2][2].setText("O");
+                            }
+                            if (cells[0][0].equals(cells[1][1])
+                                    && cells[0][0].getText().toString().equals("X")
+                                    && !cells[0][0].getText().toString().equals("")){
+                                cells[2][0].setText("O");
+                            }
+                            if (cells[0][0].equals(cells[0][1])
+                                    && cells[0][0].getText().toString().equals("X")
+                                    && !cells[0][0].getText().toString().equals("")){
+                                cells[0][2].setText("O");
+                            }
+                            if (cells[1][0].equals(cells[1][1])
+                                    && cells[1][0].getText().toString().equals("X")
+                                    && !cells[1][0].getText().toString().equals("")) {
+                                cells[1][2].setText("O");
+                            }
+                            if (cells[2][0].equals(cells[2][1])
+                                    && cells[2][0].getText().toString().equals("X")
+                                    && !cells[2][0].getText().toString().equals("")){
+                                cells[2][2].setText("O");
+                            }
+                            if (cells[0][2].equals(cells[1][1])
+                                    && cells[0][2].getText().toString().equals("X")
+                                    && !cells[0][2].getText().toString().equals("")){
+                                cells[2][0].setText("O");
+                            }
+                            if (cells[0][2].equals(cells[1][2])
+                                    && cells[0][2].getText().toString().equals("X")
+                                    && !cells[0][2].getText().toString().equals("")){
+                                cells[2][2].setText("O");
+                            }
+                            if (cells[0][1].equals(cells[1][1])
+                                    && cells[0][1].getText().toString().equals("X")
+                                    && !cells[0][1].getText().toString().equals("")){
+                                cells[2][1].setText("O");
+                            }
+
+                            hasComputerPlayed = true;
+
+                            break;
+                        }
+                    }
+                    if (hasComputerPlayed) {
+                        break;
+                    }
+                }
+            }
+
+            movesCount++;
+
+            if (hasWon()) {
+                if (playerOneTurn) {
+                    playerOneWins();
+                } else {
+                    playerTwoWins();
+                }
+            } else if (movesCount == 9) {
+                drawnMatch();
+            } else {
+                playerOneTurn = !playerOneTurn;
+            }
         }
 
     }
+
 
     private void playerOneWins() {
         playerOnePoints++;

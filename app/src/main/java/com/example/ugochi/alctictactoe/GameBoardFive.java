@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class GameBoardFive extends AppCompatActivity implements View.OnClickListener {
 
     private Button[][] cells = new Button[5][5];
@@ -27,6 +29,8 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
 
     private String playerOneAliasString;
     private String playerTwoAliasString;
+
+    private String gameMode;
 
     Button resetGame;
 
@@ -58,12 +62,14 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
             playerOneAlias.setText(String.format("%s%s", playerOneAliasString, getString(R.string.colon)));
             playerTwoAliasString = intentFromChooseBoard.getStringExtra("Player Two Alias");
             playerTwoAlias.setText(String.format("%s%s", playerTwoAliasString, getString(R.string.colon)));
+            gameMode = "HUMAN";
         }
         else {
             playerOneAliasString = intentFromChooseBoard.getStringExtra("Name of Player");
             playerOneAlias.setText(String.format("%s%s", playerOneAliasString, getString(R.string.colon)));
             playerTwoAliasString = "AI";
             playerTwoAlias.setText(String.format("%s%s", playerTwoAliasString, getString(R.string.colon)));
+            gameMode ="COMPUTER";
         }
 
 
@@ -76,8 +82,8 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
             }
         }
 
-        Button buttonReset = findViewById(R.id.reset_game);
-        buttonReset.setOnClickListener(new View.OnClickListener() {
+        resetGame = findViewById(R.id.reset_game);
+        resetGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resetGame();
@@ -90,30 +96,92 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
         if (!((Button) v).getText().toString().equals("")) {
             return;
         }
-
-        if (playerOneTurn) {
-            ((Button) v).setText("X");
-        } else {
-            ((Button) v).setText("O");
-        }
-
-        movesCount++;
-
-        if (checkForWin()) {
+        if (gameMode.equals("HUMAN")) {
             if (playerOneTurn) {
-                playerOneWins();
+                ((Button) v).setText("X");
             } else {
-                playerTwoWins();
+                ((Button) v).setText("O");
             }
-        } else if (movesCount == 25) {
-            draw();
-        } else {
-            playerOneTurn = !playerOneTurn;
+
+            movesCount++;
+
+            if (hasWon()) {
+                if (playerOneTurn) {
+                    playerOneWins();
+                } else {
+                    playerTwoWins();
+                }
+            } else if (movesCount == 25) {
+                drawnMatch();
+            } else {
+                playerOneTurn = !playerOneTurn;
+            }
+        }
+        else if (gameMode.equals("COMPUTER")) {
+            if (playerOneTurn) {
+                ((Button) v).setText("X");
+
+                movesCount++;
+
+                if (hasWon()) {
+                    if (playerOneTurn) {
+                        playerOneWins();
+                    } else {
+                        playerTwoWins();
+                    }
+                } else if (movesCount == 25) {
+                    drawnMatch();
+                } else {
+                    playerOneTurn = !playerOneTurn;
+                }
+                computerPlay();
+            }
+        }
+    }
+
+    private void computerPlay() {
+        boolean hasComputerPlayed = false;
+
+        if (!playerOneTurn) {
+
+            while (!hasComputerPlayed) {
+                int random = (int) (Math.random() * 25);
+                int row = random / 5;
+                int col = random % 5;
+
+
+                for (int i = 0; i < row; i++) {
+                    for (int j = 0; j < col; j++) {
+                        if (cells[i][j].getText().toString().equals("")) {
+                            cells[i][j].setText("O");
+                            hasComputerPlayed = true;
+                            break;
+                        }
+                    }
+                    if (hasComputerPlayed) {
+                        break;
+                    }
+                }
+            }
+
+            movesCount++;
+
+            if (hasWon()) {
+                if (playerOneTurn) {
+                    playerOneWins();
+                } else {
+                    playerTwoWins();
+                }
+            } else if (movesCount == 25) {
+                drawnMatch();
+            } else {
+                playerOneTurn = !playerOneTurn;
+            }
         }
 
     }
 
-    private boolean checkForWin() {
+    private boolean hasWon() {
         String[][] field = new String[5][5];
 
         for (int i = 0; i < 5; i++) {
@@ -233,7 +301,7 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
         resetBoard();
     }
 
-    private void draw() {
+    private void drawnMatch() {
         Toast.makeText(this, "Oops, This match is a draw!", Toast.LENGTH_SHORT).show();
         resetBoard();
     }
