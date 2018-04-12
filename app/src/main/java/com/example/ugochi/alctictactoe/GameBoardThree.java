@@ -164,7 +164,7 @@ public class GameBoardThree extends AppCompatActivity implements View.OnClickLis
                     } else {
                         playerTwoWins();
                     }
-                } else if (movesCount == 25) {
+                } else if (movesCount == 9) {
                     drawnMatch();
                 } else {
                     playerOneTurn = !playerOneTurn;
@@ -184,8 +184,8 @@ public class GameBoardThree extends AppCompatActivity implements View.OnClickLis
                 int row = random / 3;
                 int col = random % 3;
 
-                for (int i = 0; i < row; i++) {
-                    for (int j = 0; j < col; j++) {
+                for (int i = 0; i < row + 1; i++) {
+                    for (int j = 0; j < col + 1; j++) {
                         if (cells[i][j].getText().toString().equals("")) {
                             cells[i][j].setText("O");
                             if (cells[0][0].equals(cells[1][1])
@@ -196,46 +196,43 @@ public class GameBoardThree extends AppCompatActivity implements View.OnClickLis
                             if (cells[0][0].equals(cells[1][0])
                                     && cells[0][0].getText().toString().equals("X")
                                     && !cells[0][0].getText().toString().equals("")) {
-                                cells[2][2].setText("O");
+                                cells[2][0].setText("O");
                             }
                             if (cells[0][0].equals(cells[1][1])
                                     && cells[0][0].getText().toString().equals("X")
                                     && !cells[0][0].getText().toString().equals("")){
-                                cells[2][0].setText("O");
-                            }
-                            if (cells[0][0].equals(cells[0][1])
-                                    && cells[0][0].getText().toString().equals("X")
-                                    && !cells[0][0].getText().toString().equals("")){
-                                cells[0][2].setText("O");
-                            }
-                            if (cells[1][0].equals(cells[1][1])
-                                    && cells[1][0].getText().toString().equals("X")
-                                    && !cells[1][0].getText().toString().equals("")) {
-                                cells[1][2].setText("O");
-                            }
-                            if (cells[2][0].equals(cells[2][1])
-                                    && cells[2][0].getText().toString().equals("X")
-                                    && !cells[2][0].getText().toString().equals("")){
                                 cells[2][2].setText("O");
                             }
+                            if (cells[i][0].equals(cells[i][1])
+                                    && cells[0][0].getText().toString().equals("X")
+                                    && !cells[0][0].getText().toString().equals("")){
+                                cells[i][2].setText("O");
+                            }
+
                             if (cells[0][2].equals(cells[1][1])
                                     && cells[0][2].getText().toString().equals("X")
                                     && !cells[0][2].getText().toString().equals("")){
                                 cells[2][0].setText("O");
                             }
-                            if (cells[0][2].equals(cells[1][2])
-                                    && cells[0][2].getText().toString().equals("X")
-                                    && !cells[0][2].getText().toString().equals("")){
-                                cells[2][2].setText("O");
+                            if (cells[0][j].equals(cells[1][j])
+                                    && cells[0][j].getText().toString().equals("X")
+                                    && !cells[0][j].getText().toString().equals("")){
+                                cells[2][j].setText("O");
                             }
-                            if (cells[0][1].equals(cells[1][1])
-                                    && cells[0][1].getText().toString().equals("X")
-                                    && !cells[0][1].getText().toString().equals("")){
-                                cells[2][1].setText("O");
+
+                            if (cells[2][2].equals(cells[1][1])
+                                    && cells[2][2].getText().toString().equals("X")
+                                    && !cells[2][2].getText().toString().equals("")){
+                                cells[0][0].setText("O");
+                            }
+
+                            if (cells[2][0].equals(cells[1][1])
+                                    && cells[2][0].getText().toString().equals("X")
+                                    && !cells[2][0].getText().toString().equals("")){
+                                cells[0][2].setText("O");
                             }
 
                             hasComputerPlayed = true;
-
                             break;
                         }
                     }

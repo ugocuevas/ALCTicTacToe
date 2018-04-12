@@ -24,6 +24,7 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
 
     private TextView playerOneAlias;
     private TextView playerTwoAlias;
+    private TextView whoseTurn;
     private TextView pointsForPlayerOne;
     private TextView pointsForPlayerTwo;
 
@@ -50,6 +51,8 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
 
         pointsForPlayerOne = findViewById(R.id.player_one_score);
         pointsForPlayerTwo = findViewById(R.id.player_two_score);
+        whoseTurn = findViewById(R.id.whose_turn);
+
 
         playerOnePoints = 0;
         playerTwoPoints = 0;
@@ -99,8 +102,12 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
         if (gameMode.equals("HUMAN")) {
             if (playerOneTurn) {
                 ((Button) v).setText("X");
+                whoseTurn.setText("Turn: " + playerTwoAliasString + "'s turn");
+
             } else {
                 ((Button) v).setText("O");
+                whoseTurn.setText("Turn: " + playerOneAliasString + "'s turn");
+
             }
 
             movesCount++;
@@ -150,8 +157,8 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
                 int col = random % 5;
 
 
-                for (int i = 0; i < row; i++) {
-                    for (int j = 0; j < col; j++) {
+                for (int i = 0; i < row + 1; i++) {
+                    for (int j = 0; j < col + 1; j++) {
                         if (cells[i][j].getText().toString().equals("")) {
                             cells[i][j].setText("O");
                             hasComputerPlayed = true;
