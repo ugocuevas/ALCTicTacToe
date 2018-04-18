@@ -13,6 +13,7 @@ import java.util.Random;
 
 public class GameBoardFive extends AppCompatActivity implements View.OnClickListener {
 
+    //Initializing the variables and objects
     private Button[][] cells = new Button[5][5];
 
     private boolean playerOneTurn = true;
@@ -44,16 +45,19 @@ public class GameBoardFive extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_board_five);
 
+        //Set player one to true to ensure that player one has X
+        playerOneTurn = true;
+
+        //Using the ids to find the views
+
         playerOneAlias = findViewById(R.id.player_one);
         playerTwoAlias = findViewById(R.id.player_two);
-
-        playerOneTurn = true;
 
         pointsForPlayerOne = findViewById(R.id.player_one_score);
         pointsForPlayerTwo = findViewById(R.id.player_two_score);
         whoseTurn = findViewById(R.id.whose_turn);
 
-
+        //Set the points to zero for both players at the beginning of the game
         playerOnePoints = 0;
         playerTwoPoints = 0;
 
